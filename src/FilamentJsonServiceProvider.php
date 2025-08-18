@@ -24,6 +24,10 @@ class FilamentJsonServiceProvider extends PackageServiceProvider
                 $command
                     ->askToStarRepoOnGitHub('cube-agency/filament-json');
             });
+
+        if (file_exists($package->basePath('/../resources/views'))) {
+            $package->hasViews(static::$viewNamespace);
+        }
     }
 
     public function packageRegistered(): void

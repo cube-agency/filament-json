@@ -6,7 +6,7 @@ use Filament\Forms\Components\Field;
 
 class Json extends Field
 {
-    protected string $view = 'filament-forms::components.fieldset';
+    protected string $view = 'filament-json::components.fieldset';
 
     protected function setUp(): void
     {

@@ -26,18 +26,32 @@
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.0"
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
     },
     "autoload": {
         "psr-4": {
             "CubeAgency\\FilamentJson\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "CubeAgency\\FilamentJson\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {

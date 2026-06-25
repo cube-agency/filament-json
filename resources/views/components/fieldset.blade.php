@@ -3,5 +3,5 @@
         {{ $getLabel() }}
     </x-slot>
 
-    {{ $getChildComponentContainer() }}
+    {{ $getChildSchema() }}
 </x-filament::fieldset>

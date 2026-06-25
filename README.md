@@ -13,6 +13,7 @@ Basic Filament field to save data as JSON
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
@@ -34,11 +35,17 @@ and add this field to your form:
 
 ```php
 use CubeAgency\FilamentJson\Filament\Forms\Components\Json;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Schema;
 
-public static function form(Form $form): Form
+public static function form(Schema $schema): Schema
 {
-    return $form
-        ->schema([
+    return $schema
+        ->components([
             // ...
             Json::make('meta')
                 ->schema([
@@ -53,18 +60,12 @@ public static function form(Form $form): Form
                                 ->rows(3),
                             FileUpload::make('image')
                                 ->image()
-                                ->imagePreviewHeight('64')
+                                ->imagePreviewHeight('64'),
                         ]),
                 ]),
             // ...
         ]);
 }
-```
-
-## Testing
-
-```bash
-composer test
 ```
 
 ## Changelog
